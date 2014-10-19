@@ -69,6 +69,7 @@ Here is a time-series plot of the average number of steps per interval. The inte
 # make a time-series plot
 ggplot(steps_in_intervals, aes(x=interval, y=steps)) + geom_line() + xlab("Interval start") + ylab("Average number of steps per interval") + geom_vline(xintercept = max_avg_interval, colour="red")
 ```
+
 The maximum (on average) number of steps was observed during the interval `r max_avg_interval`.
 
 
@@ -115,6 +116,7 @@ The mean number of steps per day is `r fmean_spd`, while the median number of st
 ```{r echo=TRUE, results='hide', message=FALSE, warning=FALSE}
 ggplot(data=steps_per_day, aes(x=date, y=steps)) + geom_line(aes(colour="original")) + geom_line(data=fsteps_per_day, aes(x=date, y=steps, colour="filled")) + scale_colour_manual(name="Data", values=c("original"="black", "filled"="red")) + xlab("Day") + ylab("Number of steps per day")
 ```
+
 As can be seen, the red line is either overlapping or is above the black line, meaning that the number of steps per day is oversetimated.
 
 ## Are there differences in activity patterns between weekdays and weekends?
